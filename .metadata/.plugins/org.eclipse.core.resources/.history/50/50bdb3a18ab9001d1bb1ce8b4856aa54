@@ -1,0 +1,45 @@
+package io.adorapet.test.jstl;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class MusicController {
+	
+	@GetMapping("/jstl/test01")
+	public String musicChart(Model model) {
+		
+		List<Map<Integer, String>> musicList = new ArrayList<>();
+		
+		Map musicMap = new HashMap<>();
+		musicMap.put(1, "강남스타일");
+		musicList.add(musicMap);
+		musicMap = new HashMap<>();
+		musicMap.put(2, "벚꽃엔딩");
+		musicList.add(musicMap);
+		musicMap = new HashMap<>();
+		musicMap.put(3, "좋은날");
+		musicList.add(musicMap);
+		musicMap = new HashMap<>();
+		musicMap.put(4, "거짓말");
+		musicList.add(musicMap);
+		musicMap = new HashMap<>();
+		musicMap.put(5, "보고싶다");
+		musicList.add(musicMap);
+		
+		model.addAttribute(musicList);
+		
+		return "jstl/test01";
+		
+		
+		
+		
+	}
+
+}
